@@ -36,6 +36,6 @@ var bracesValid = function (str) {
 console.log(bracesValid('[(ch)]{}'));
 
 console.log(bracesValid('var fiddle = function() { doggy.eat();'));
-console.log(bracesValid('This()Gay[shit]['));
+console.log(bracesValid('This()sfo[foo]['));
 console.log(bracesValid(15));
 
