@@ -1,0 +1,16 @@
+*{
+    color: black;
+}
+.container{
+    background-color: rgb(60, 170, 60);
+    width: 50%;
+    margin-top: 4%;
+    border: 2px solid rgba(48, 42, 42, 0.883);
+    border-radius: 25px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+}
+body{
+    margin-top: 15px;
+}

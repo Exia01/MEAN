@@ -1,0 +1,34 @@
+<div class="container color-dark">
+  <h6 class="sm">Starting here to below. This is all coming from the home component</h6>
+  <div class="col">
+    <p>Add a bucket list / todo task to your list item</p>
+  </div>
+  <div class="col">
+    <p>Your bucket list ({{itemCount}})</p>
+    <!-- {{}} this is known as string intrapollation(not sure about spelling) -->
+  </div>
+</div>
+
+<div class="container color-light" [@goals]="goals.length">
+  <div class="col">
+    <p class="sm">Use this form below to add a new bucket list goal. What do you want to do with your life?</p>
+    <form>
+      <input type="text" class="txt" name="item" placeholder="Your goal..." [(ngModel)]="goalText">
+      <br>
+      <span>{{ goalText }}</span>
+      <br>
+      <!-- [(gnModel)]="" the double bracket and  parenthesis along with the ngModel sets up a two way data binding -->
+      <input type="submit" class="btn" [value]=" btnText " (click)="addItem()">
+      <!-- click in this instance is a fucntion and we dont have to pass anythin because we are obtaining it from the form  -->
+      <!-- every time we press on the button, it will push onto the array and increase the count -->
+    </form>
+  </div>
+  <div class="col">
+    <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
+      <!-- this is creating two variables on one line. (click) acts like a function-->
+      {{ goal }} 
+    </p>
+    <!-- *ngFor this is a directive that itirates through the array -->
+  </div>
+
+</div>

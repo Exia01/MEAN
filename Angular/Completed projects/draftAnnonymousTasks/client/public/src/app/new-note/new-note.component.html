@@ -1,0 +1,17 @@
+<div class="p-3 mb-2 bg-white text-dark">
+	<h2>Task</h2>
+</div>
+<div class="NewNote">
+	{{ task | json }}
+	<form class="form-group"(submit)="createNote()">
+		<p>Title:
+			<input class="form-control" type="text" [(ngModel)]="task.title" name="task.title">
+		</p>
+		<p>Description: 
+			<input class="form-control" type="text" [(ngModel)]="task.description" name="task.description">
+		</p>
+		<button class="btn btn-primary" input type="submit" value="Create Note">Create Note</button>
+	</form>
+</div>
+
+<router-outlet></router-outlet>

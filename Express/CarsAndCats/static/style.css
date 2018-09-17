@@ -1,0 +1,13 @@
+*{
+    align-content: center;
+    margin: auto 0px;
+    background-color: rgb(116, 116, 116);
+}
+img{
+    width: auto;
+    height: 650px;
+    border: 2px solid rgb(228, 102, 108);
+}
+h1{
+    color: pink;
+}

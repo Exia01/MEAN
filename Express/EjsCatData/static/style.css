@@ -1,0 +1,25 @@
+*{
+    margin: auto 0px;
+    background-color: rgb(116, 116, 116);
+}
+body{
+}
+#images{
+    /* justify-content: space-around; */
+    display: flex;
+}
+
+img{ 
+    justify-content: space-between;
+    width: auto;
+    height: 250px;
+    border: 2px solid rgb(228, 102, 108);
+}
+h3{
+    justify-content: space-around;
+    width: 250px;
+    color: rgb(238, 170, 232);
+}
+#data{
+    display: block;
+}

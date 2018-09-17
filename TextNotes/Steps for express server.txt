@@ -1,0 +1,28 @@
+1-navigate to that folder using your terminal/command-prompt/bash.
+
+in terminal/command-prompt/bash type npm init -y (test it out without the y  this will crea json package
+
+2- npm install express ejs body parser mongoose --save 
+npm install --save express-flash
+npm install express-sessions
+
+5- eslint //select style guide, why style guide?  react? what format? json 
+make sure it is intalled locally
+6- npm install eslint 
+ or eslint --init
+5- npm install express-session
+
++mongoose
+
+npm install mongoose --save
+
+
++ sockets 
+
+npm init -y - if you're starting with that first
+
+npm install --save express
+
+npm install --save socket.io
+
+x- nodemon server.js **this starts the server

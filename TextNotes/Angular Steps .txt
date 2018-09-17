@@ -1,0 +1,26 @@
+npm install -g @angular/cli -- install globally
+ng -- this prompts the command list
+new --creates new app
+new project name --and press enter
+
+--to create a compoment 
+ng g c or generate component "name" 
+
+ng watch? 
+
+
+- start in apps module and then routing 
+
+in apps module make you do all the imports 
+ 
+
+all services
+ stubb components 
+do routing 
+then proceed to complete components 
+
+
+
+finish if errors
+you could update the emitter upfront and hold the information ont the front end instead of making a query 
+sorting on the reviews 

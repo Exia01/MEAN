@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="users.css">
+    <title>Survey Form</title>
+    <script>
+        $(document).ready(function () {
+                console.log("ready!");
+                $("button").click(function () {
+                    $(this).show()
+                });
+            });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Survey Form</h1>
+
+        <form class="form-horizontal" action="/info" method="POST">
+            <div class="form-group" >
+                <label for="name" class="col-sm-10 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <br>
+                <label for="dojo_location" class="col-sm-10 control-label">Dojo Location</label>
+                <div class="col-sm-10">
+                    <select class="form-control" name="location">
+                        <option></option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Silicon Valley">Silicon Valley</option>
+                        <option value="Washington D.C.">Washington D.C.</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Dallas">Dallas</option>
+                    </select>
+                </div>
+                <br>
+                <label for="fav_lang" class="col-sm-10 control-label">Vote For Your Favorite Language</label>
+                <div class="col-sm-10">
+                    <select name="language" class="form-control">
+                        <option></option>
+                        <option value="Python">Python</option>
+                        <option value="Ruby on Rails">Ruby on Rails</option>
+                        <option value="M.E.A.N">M.E.A.N.</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="Java">Java</option>
+                        <option value="PHP">PHP</option>
+                        <option value="SQL">SQL</option>
+                    </select>
+                </div>
+                <br>
+                <label for="fav_lang" class="col-sm-10 control-label">Comments (Optional)</label>
+                <div class="col-sm-10">
+                    <input name="comments" type="text" class="form-control">
+                </div>
+                <br>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- <div style="visibility:hidden" class="results"> -->
+    <div class="results">
+    </div>
+</body>
+
+</html>

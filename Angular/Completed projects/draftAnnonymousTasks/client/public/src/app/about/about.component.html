@@ -1,0 +1,15 @@
+<div class="p-3 mb-2 bg-secondary text-white">
+    <h2>{{ task.title }}</h2>
+    <h6>{{ task.description }}
+    </h6>
+    <a class="btn btn-danger" role="button" (click)="removeTask(task._id)">Delete</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad consectetur saepe placeat minus consequatur incidunt eaque,
+        officia vel! Corporis, nesciunt quae iure quod pariatur ratione excepturi voluptas maiores sint velit?</p>
+    <h4>Count is over {{task._id}}</h4>
+    <a class="btn btn-info" role="button" [routerLink]="['']">Go home</a>
+</div>
+
+<div>
+    <p>Below is the tasks section</p>
+</div>
+<app-tasks></app-tasks>

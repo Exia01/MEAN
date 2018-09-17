@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Let's Eat</h1>
+    <h3>Register a Restaurant</h3>
+
+    {{ restaurant | json }}
+
+    <div *ngFor="let error of errors">
+      <p class="red">{{error}}</p>
+    </div>
+
+    <form (submit)="create()">
+      Restaurant Name:
+      <input class="form-control" name="restaurant.name" [(ngModel)]="restaurant.name" minlength="3" required #name="ngModel" />
+      <p *ngIf="!name.valid && name.dirty" class="red">Name must be 3 characters</p>
+
+      Cuisine:
+      <input class="form-control" name="restaurant.cuisine" [(ngModel)]="restaurant.cuisine" minlength="3" required #cuisine="ngModel"
+      />
+      <p *ngIf="!cuisine.valid && cuisine.dirty" class="red">Cuisine must be 3 characters</p>
+      <br>
+
+      <input class="btn btn-primary" type="submit" value="Create Restaurant" />
+
+    </form>
+    <br>
+    <a [routerLink]="['']" class="btn btn-secondary">Cancel</a>
+  </div>
+</div>

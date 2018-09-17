@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script type="text/javascript" src="scripts.js" ></script>
+    <style>
+        .color{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <form action="/login/" method="POST" name="Login_Form" class="form-signin">
+                <p class="color">Messages Go here</p>
+                <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+                <hr class="colorgraph">
+                <br>
+
+                <input id="email" type="email" class="form-control"  name="Email" placeholder="Email" autofocus="" />
+
+                <input id="pass" type="password" class="form-control" name="pass" value="" />
+                <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+            </form>
+            <form action="" method=""
+            name="Login_Form" class="form-signin">
+                <a href="/clear" class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Reset</a>
+            </form>
+        </div>
+    </div>
+
+</html>

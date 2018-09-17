@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Let's Eat</h1>
+    <!-- <h3>Write a review for {{restaurant.name}}</h3> -->
+    {{ review | json }}
+
+    <form class="form-group" (submit)="create()">
+      <p>Reviewer:
+        <input class="form-control" name="review.reviewer_name" [(ngModel)]="review.reviewer_name" />
+      </p>
+      <p>Stars:
+        <input class="form-control" name="review.rating" [(ngModel)]="review.rating" />
+      </p>
+      <p>Review:
+        <input class="form-control" name="review.review" [(ngModel)]="review.review" />
+      </p>
+      <input class="btn btn-primary" type="submit" value="Submit Review" />
+      <!-- <input class="btn btn-primary" type="submit" value="Submit Review" /> -->
+    </form>

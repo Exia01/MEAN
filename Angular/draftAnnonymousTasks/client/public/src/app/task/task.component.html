@@ -1,0 +1,8 @@
+<div class="p-3 mb-2 bg-secondary text-white">
+  <a href="" role="button" [routerLink]="['about',task._id]">
+    <h2>{{ task.title }}</h2>
+  </a>
+  <h6>{{ task.description }}
+  </h6>
+  <a class="btn btn-danger" role="button" (click)="removeTask(task)">Delete</a>
+</div>

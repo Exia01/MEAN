@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Survey Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="users.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    <script>
+        $(document).ready(function () {
+            var socket = io();
+            // var formdata = $('form1').serialize(); //helps serialize the data **needs to be tested.
+                $("#form1").submit(function (e) {
+                   var formData = {
+                        name:$('#name').val(),
+                        location:$('#location').val(),
+                        language:$('#language').val(),
+                        comments:$('#comments').val(),
+                   }
+                    e.preventDefault();
+                    socket.emit('formSubmit', formData);
+                //     socket.emit("formSubmit",{
+                //         name:$('#name').val(),
+                //         location:$('#location').val(),
+                //         language:$('#language').val(),
+                //         comments:$('#comments').val(),
+                // }) //alternative way of doing it
+                });
+                socket.on('updatedMessage', (data) => {
+                    $('#message').html(`
+                    <p>${data.msg}</p>
+                    `);
+                    console.log(data.msg)
+                    //could be done the way below as well. json.strify need to be taken off.
+            //  for (let i in data){
+            //$('#info').append('<p>'+i+': '+data[i]+'</p>')
+            }); 
+                socket.on('luckyNum', (data) => {
+
+                    $('#message').append(`
+                    <p>${data.msg}</p>
+                    `);
+                    console.log(data.msg)
+            }); 
+        });
+    </script>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div id="message"></div>
+        <h1>Survey Form</h1>
+
+        <form class="form-horizontal" id="form1" method="POST">
+            <div class="form-group" >
+                <label for="name" class="col-sm-10 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <br>
+                <label for="dojo_location" class="col-sm-10 control-label">Dojo Location</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="location" name="location">
+                        <option></option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Silicon Valley">Silicon Valley</option>
+                        <option value="Washington D.C.">Washington D.C.</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="Dallas">Dallas</option>
+                    </select>
+                </div>
+                <br>
+                <label for="fav_lang" class="col-sm-10 control-label">Favorite Language</label>
+                <div class="col-sm-10">
+                    <select class="form-control" id="language" name="language">
+                        <option></option>
+                        <option value="Python">Python</option>
+                        <option value="Ruby on Rails">Ruby on Rails</option>
+                        <option value="M.E.A.N">M.E.A.N.</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="Java">Java</option>
+                    </select>
+                </div>
+                <br>
+                <label for="fav_lang" class="col-sm-10 control-label">Comments (Optional)</label>
+                <div class="col-sm-10">
+                    <input id="comments" name="comments" type="text" class="form-control">
+                </div>
+                <br>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="results">
+    </div>
+</body>
+
+</html>

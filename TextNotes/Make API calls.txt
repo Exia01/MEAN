@@ -1,0 +1,44 @@
+-Make a special folder for your service as good practice *per tony.*
+
+- ng generate service namegoeshere *This is based on what you're doing like getting users. "Pokemon"
+
+- Go into your app.models.ts  -> import {httpClientModule} from "@angular/commmon/http"
+
+- assign to imports "HttpClientModule"
+
+-import in that name services.ts {HttpClientModule} from "@angular/commmon/http"
+
+-ensure the client is private - do that in all services *per Tony*
+
+-procceed to create functions 
+"findPokemon()" 
+
+-for example if you're doing a get you should have the url parameter
+
+-It will return an observable "i.e.., socket. 
+-these have two options: 
+you can subscribe and unsubscribe to them, and it takes a callback function. 
+
+-In this instance you're passing the data that you subscribe to it and pass it to the find function.
+
+-implement it by dependency inject in body components. 
+ 
+- see line 2 PokemonService 
+
+
+-line 15 ngoninit -essentially. Once we have the componets we want to talk to the service and we supply it the callback to obtain it. "data" 
+
+we can also console.log that.
+
+-if we refresh the main page and inspect it, and we notice that we should be receiving the data
+
+- we can make a variable on line 13 
+
+- we can then pass it onto line 19
+
+-on the body componet we call it: 
+
+{{pokemon.name}}
+
+- we can also call a picture if there is on the object
+<img src="{{pokemon.sprite.front_default}}

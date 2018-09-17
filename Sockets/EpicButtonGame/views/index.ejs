@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Survey Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="users.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    <script>
+        $(document).ready(function () {
+            let socket = io();
+                $("#add").submit(function(e) {
+                   let count = 1
+                    socket.emit('sendInfo', count);
+                    e.preventDefault();
+                });
+                $("#clear").submit(function(e) {
+                   let count = 0
+                    socket.emit('sendInfo', count);
+                    e.preventDefault();
+                });
+                socket.on('totalCount', (data) => {
+                    console.log(data)
+                    $('#num').html(`
+                    ${data.count}
+                    `);
+            }); 
+        });
+    </script>
+</head>
+
+<body>
+    
+    <div class="container" role="main">
+
+        <div class="center-block text-center">
+            <h1>Times the button has been pressed</h1>
+            <p id="num"></p>
+            <form id="add" method="POST" action="">
+                <button type="submit" class="btn btn-secondary" name="addOne">Push the epic button</button>
+            </form><br>
+            <form id="clear" method="POST" action="">
+                <button type="submit" class="btn btn-secondary" name="reset">Reset</button>
+            </form><br>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

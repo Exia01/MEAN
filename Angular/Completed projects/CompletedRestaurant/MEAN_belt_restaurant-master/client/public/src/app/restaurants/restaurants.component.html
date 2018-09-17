@@ -1,0 +1,26 @@
+<div class="jumbotron" *ngIf="restaurants">
+  <h1>Let's Eat</h1>
+  <a [routerLink]="['new']" class="btn btn-success">New Restaurant</a>
+  <br>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Restaurant</th>
+        <th scope="col">Cuisine</th>
+        <th scope="col">Actions Available</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let restaurant of restaurants">
+      <td>{{ restaurant.name }}</td>
+      <td>{{ restaurant.cuisine }}</td>
+      <td>
+        <button class="btn badge-success btn-sm" [routerLink]="[ restaurant._id ]">Read Reviews</button> |
+        <button class="btn badge-warning btn-sm" [routerLink]="[ restaurant._id, 'edit' ]">Update</button> |
+        <button class="btn badge-danger btn-sm" (click)="destroy(restaurant)">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<router-outlet></router-outlet>

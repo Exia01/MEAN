@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function shuffle(a) {
+                var j, x, i;
+                for (i = a.length - 1; i > 0; i--) {
+                    j = Math.floor(Math.random() * (i + 1));
+                    x = a[i];
+                    a[i] = a[j];
+                    a[j] = x;
+                }
+                return a;
+            }
+            $.get(
+                "https://opentdb.com/api.php?amount=8&difficulty=easy&type=multiple",
+                function (data) {
+                    console.log(data)
+                    var questions = "";
+                    for (let i = 0; i < data.results.length; i++) {
+                        questions += '<div class "sect">';
+                        questions += '<div class="category">';
+                        questions += "<h5>" + data.results[i].category + "</h5>";
+                        questions += '</div>';
+                        questions += '<div class="question">';
+                        questions += "<p>" + data.results[i].question + "</p>";
+                        questions += '<form>';
+                        questionsArr = data.results[i].incorrect_answers;
+                        questionsArr[3] = data.results[i].correct_answer;
+                        questionsArr = shuffle(questionsArr);
+                        for (let j = 0; j < questionsArr.length; j++) {
+                            if (data.results[i].correct_answer == questionsArr[j]) {
+                                questions +=
+                                    '<input type="radio" class="correct">' + questionsArr[j] + "<br>";
+                            } else {
+                                questions += '<input type="radio">' + questionsArr[j] + "<br>";
+                            }
+                        }
+                        questions += "</form></div>";
+                        questions += "</div>";
+                    }
+
+                    $("#content").html(questions);
+                }
+            );
+
+        });
+
+    </script>
+    <!-- <style>
+        #header {
+            height: 50px;
+            width: 94vw;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a {
+            margin-top: 40px;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sub {
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category {
+            background-color: rgb(206, 206, 110);
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .question {
+            width: 200px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: blue;
+            margin: 10px auto;
+            color: white;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <a href="">Continue with new questions</a>
+            <h1>Trivia Night</h1>
+            <h1>0 points</h1>
+        </div>
+        <div id="content">
+
+        </div>
+    </div>
+</body>
+
+</html>

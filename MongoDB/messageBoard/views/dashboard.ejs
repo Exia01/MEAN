@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <main role="main">
+        <section class="jumbotron">
+            <div class="container">
+                <h5 class="jumbotron-heading">Dashboard</h5>
+                <% if(i.message) { %>
+                    <% for (let j of i.message) { %>
+                    <h5><%= j %></h5>
+                    <% } %>
+                <% } %>
+                <br>
+                <% for(let x of i){%>
+                    <div id="Section">
+                          <h4><%= x.name %>"</h4>
+                          <p><%= x.text %>"</p>
+                          <p><%= x.created_at%></p>
+                          <p><%= x._id%></p>
+                              <p class="well">test</p>
+                          </div>
+                        <a href="/edit/<%= x._id%>"</a><button type="button" class="btn btn-warning">Edit Message</button></a>
+                        <a href="/delete/<%= x._id%>"</a><button type="button" class="btn btn-danger">Delete comment</button></a>
+                        <br>
+                        <div class="form-group">
+                                <form id="form1" class="form-horizontal" action="/newMessage" method="POST">
+                                Name:
+                                <input type="text" class="form-control" id="name" name="name">
+                                <br>
+                                Comment:
+                                <textarea type="text" class="form-control" id="text" name="text"></textarea>
+                                <br>
+                                <button form="form1" type="submit" class="btn btn-success">Add Comment</button>
+                            </form>
+                            <a href="/edit/<%= x._id%>"</a><button type="button" class="btn btn-warning">Edit Comment</button></a>
+                        <a href="/delete/<%= x._id%>"</a><button type="button" class="btn btn-danger">Delete Comment</button></a>
+                            </div>
+                    </div>
+                    <%}%> 
+                    <div class="form-group">
+                            <form id="form1" class="form-horizontal" action="/newMessage" method="POST">
+                            Name:
+                            <input type="text" class="form-control" id="name" name="name">
+                            <br>
+                            Message:
+                            <textarea type="text" class="form-control" id="text" name="text"></textarea>
+                            <br>
+                            <button form="form1" type="submit" class="btn btn-success">Add Message</button>
+                        </form>
+                        </div>
+            </div>
+            </section>
+    </main>
+
+</body>
+
+</html>

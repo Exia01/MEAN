@@ -1,0 +1,47 @@
+({name: "Johny, home_state: "Virginia", lucky_number: 45, birthday: {month: 04, day: 25 year: 1997}})
+
+db.ninjas.insert({name:"Tyrone", description:"Tupac shakur looking mothaf"})
+
+db.ninjas.update({name:'Rick'},{$set:{last_name:'James'}})
+
+db.ninjas.update({name:'first_name'},{$set:{name:'Rick'}})
+
+db.ninjas.find().pretty()
+
+db.ninjas.find({name:'Rick'}).pretty() --less specific
+
+db.ninjas.find({_id: ObjectId("5b1eb22aa4deb21c69a92141")}).pretty() --very specific 
+
+db.quotes.drop()
+db.createCollection('students')
+db.ninjas.remove({_id: ObjectId("5b1eb22aa4deb21c69a92141")}) --better way to delete items 
+db.dojos.find({number_of_students: {$gt: 15}}) -- number is greater than 15
+
+$gt (greater than)	Use to query selectively on numerical-valued fields
+
+$gte (greater than or equal to)	Use to query selectively on numerical-valued fields
+
+$lt (less than)	Use to query selectively on numerical-valued fields
+
+	Use to query selectively on numerical-valued fields
+
+$in (in array)	Use to find documents who have a particular value within an array.
+
+db.students.update({_id: ObjectId("5463d871a6a96d5ed6252f4d")}, {$push: {interests: 'snowboarding'}})
+The $push is to update the value within an array dic
+
+$push	Push to an array contained within a document.
+
+$pop	Removes either the first or last element from an array. EX:
+db.COLLECTION.update({QUERY}, {$pop: {array_key: (1 or -1)}})
+Use 1 for the last item in the array, -1 for the first item
+
+$addToSet	It functions just like $push.  
+However, $addToSet only adds to the specified array if the value doesn't already exist 
+(thereby preventing duplicate entries).
+
+$pull	Removes a specified value from an array, unlike $pop, which removes by location. Ex:
+db.COLLECTION.update({QUERY}, {$pull: {array_key: VALUE}})
+
+This will remove all instances of VALUE from the documents with the array---
+specified by the array_key that match QUERY.

@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="jumbotron" *ngIf="restaurant">
+
+    {{ restaurant.reviews | json }}
+
+    <h1>Let's Eat</h1>
+    <h4>Reviews for {{restaurant.name}}</h4>
+
+
+    <button class="btn badge-info btn-sm" [routerLink]="['reviews']">New Review</button>
+
+    <table *ngIf="restaurant.reviews" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Customer:</th>
+          <th scope="col">Stars:</th>
+          <th scope="col">Review:</th>
+        </tr>
+      </thead>
+
+      <tr *ngFor="let review of restaurant.reviews">
+        <td>{{ review.reviewer_name }}</td>
+        <td>{{ review.rating }}</td>
+        <td>{{ review.review }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
