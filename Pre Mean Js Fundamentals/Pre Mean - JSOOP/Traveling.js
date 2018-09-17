@@ -1,7 +1,7 @@
 var tigger = {
     character: "Tigger",
     greet: function () {
-        return "You wanna know something kid? ..Bush did 9/11";
+        return "YEaaaaa Buddddyyy";
     }
 };
 
